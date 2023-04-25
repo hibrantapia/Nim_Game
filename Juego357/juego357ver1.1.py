@@ -92,7 +92,6 @@ def agente(col1, col2, col3):
         #estoy bastante seguro que hay una mejor forma de hacer esto
         #el chiste es que no se ponga en una situación comprometedora tratando de terminar en una configuración 1 1 0 
         if ((col1h==1 and col2h==1) or (col1h==1 and col3h==1) or (col2h==1 and col3h==1)):
-            if (col1h==0 or col2h==0 or col3h==0):
                 if(col1>1):
                     num=col1-1
                     col=1
@@ -102,16 +101,21 @@ def agente(col1, col2, col3):
                 elif(col3>1):
                     num=col3-1
                     col=3
-        #último caso, dado n, 1, 0 en cualquier columna
-        #el agente tiene que retirar n fichas de la columna n
-        
-                
+        if(col1==0 or col2==0 or col3==0):
+            if(col1==1 or col2==1 or col3==1):
+            #este caso cubre el caso n, 1, 0
+            #el agente debe comer la fila n completa para forzar la victoria
+                if(col1>1):
+                    col=1
+                    num=col1
+                elif(col2>1):
+                    col=2
+                    num=col2
+                elif(col3>1):
+                    col=3
+                    num=col3
         #if (col1h+col2h+col3h == 2): 
          #   num += 1
-
-               
-
-
     return col, num
 
 
