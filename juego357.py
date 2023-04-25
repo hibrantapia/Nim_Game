@@ -1,6 +1,7 @@
 # juego 3 5 7
-# TODO
-# Añadir condición para cuando el agente pierde, aka el jugador juega perfecto - DONE
+# v2
+# TODO: 
+# 
 
 import random as r
 col1 = 3
@@ -71,32 +72,52 @@ def agente(col1, col2, col3):
         # el agente tiene que hacer una jugada tal que el nimSum sea 0
         # para esto, el agente tiene que retirar el número de fichas que haga que el nimSum sea 0 de una columna no vacía
         # tiene que retirar mínimo 1 ficha
-        if (col1 != 0 and ((col1 ^ nimSum()) < col1)):
-            col = 1
-            num = col1-(col1 ^ nimSum())
-            col1h = col1h-num
-        elif (col2 != 0 and ((col2 ^ nimSum()) < col2)):
-            col = 2
-            num = col2-(col2 ^ nimSum())
-            col2h = col2h-num
-        elif (col3 != 0 and ((col3 ^ nimSum()) < col3)):
-            col = 3
-            num = col3-(col3 ^ nimSum())
-            col3h = col3h-num
 
-        if (col1h+col2h+col3h == 2):
-            num += 1
+        sum=nimSum()
+        if (col1!=0 and (col1^sum)<col1):
+            col=1
+            num=col1-col1^sum
+            print(str(col1^sum) + " " + str(sum))
+        elif (col2!=0 and (col2^sum<col2)):
+            col=2
+            num=col2-col2^sum
+            print(str(col2^sum)+ " " + str(sum))
+        elif (col3!=0 and (col3^sum<col3)):
+            col=3
+            num=col3-col3^sum
+            print(str(col3^sum)+ " " + str(sum))
 
+        # if (col1 != 0 and ((col1 ^ nimSum()) < col1)):
+        #     col = 1
+        #     num = col1-(col1 ^ nimSum())
+        #     col1h = col1h-num
+        #     print(f"Here 1 num: {num}, col1h: {col1h}, nimSum: {nimSum()}, XOR: {col1 ^ nimSum()}")
+        # elif (col2 != 0 and ((col2 ^ nimSum()) < col2)):
+        #     col = 2
+        #     num = col2-(col2 ^ nimSum())
+        #     col2h = col2h-num
+        #     print(f"Here 2 num: {num}, col2h: {col2h}, nimSum: {nimSum()}, XOR: {col2 ^ nimSum()}")
+        # elif (col3 != 0 and ((col3 ^ nimSum()) < col3)):
+        #     col = 3
+        #     num = col3-(col3 ^ nimSum())
+        #     col3h = col3h-num
+        #     print(f"Here 3 \n num: {num}, col3h: {col3h}, nimSum: {nimSum()}, XOR: {col3 ^ nimSum()}")
+        
         if (col1h == 0 and col2h == 0 and col3h == 0):
             print("Bot: Final del juego, bien jugado :)")
-            num = num-1
-
+            num-=1
+            return col, num
+        
+        # if (col1h+col2h+col3h == 2):
+        #     print("Entered test")
+        #     if(col==1 and num>=col1):
+        #         num=col1-1
+        #     elif(col==2 and num>=col2):
+        #         num=col2-1
+        #     elif(col==3 and num>=col3):
+        #         num=col3-1
+             
     return col, num
-
-
-def start():
-    print("En este juego se deben retirar cualquier cantidad de fichas de una columna, pero solo una columna por turno. El jugador que retira la última ficha pierde.")
-    printBoard()
 
 def endgame(turn):
     if (turn):
@@ -104,15 +125,28 @@ def endgame(turn):
     else:
         print("Ganó el agente")
 
+def validateCols():
+    global col1
+    global col2
+    global col3
+    if(col1<0):
+        col1=0
+    if(col2<0):
+        col2=0
+    if(col3<0):
+        col3=0
+
 def control():
     global col1
     global col2
     global col3
     done = False
-    start()
+    print("En este juego se deben retirar cualquier cantidad de fichas de una columna, pero solo una columna por turno. El jugador que retira la última ficha pierde.")
     # turn= r.randint(0,1) #1 es agente, 0 es jugador
-    turn = 0  # , para debugging donde el jugador empieza
+    turn = 1  # , para debugging donde el jugador empieza
     while (not done):
+        validateCols()
+        printBoard()
         if (bool(turn)):
             if ((col1 == 0 and col2 == 0 and col3 == 1)):
                 col, num = 3, 1
@@ -150,13 +184,13 @@ def control():
                 
         else:
             print("Es tu turno")
+            print(f"El nimsum es {nimSum()}")
             print("Ingresa la columna")
             col = int(input())
             print("Ingresa la cantidad de fichas a retirar")
             num = int(input())
             modifyBoard(col, num)
             turn = not turn
-        printBoard()
         if (col1 == 0 and col2 == 0 and col3 == 0):
             done = True
             endgame(not turn)
