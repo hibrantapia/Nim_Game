@@ -78,14 +78,17 @@ def agente(col1, col2, col3):
             col=1
             num=col1-col1^sum
             print(str(col1^sum) + " " + str(sum))
+            col1h=col1h-num
         elif (col2!=0 and (col2^sum<col2)):
             col=2
             num=col2-col2^sum
             print(str(col2^sum)+ " " + str(sum))
+            col2h=col2h-num
         elif (col3!=0 and (col3^sum<col3)):
             col=3
             num=col3-col3^sum
             print(str(col3^sum)+ " " + str(sum))
+            col3h=col3h-num
 
         # if (col1 != 0 and ((col1 ^ nimSum()) < col1)):
         #     col = 1
@@ -102,7 +105,7 @@ def agente(col1, col2, col3):
         #     num = col3-(col3 ^ nimSum())
         #     col3h = col3h-num
         #     print(f"Here 3 \n num: {num}, col3h: {col3h}, nimSum: {nimSum()}, XOR: {col3 ^ nimSum()}")
-        
+                
         if (col1h == 0 and col2h == 0 and col3h == 0):
             print("Bot: Final del juego, bien jugado :)")
             num-=1
