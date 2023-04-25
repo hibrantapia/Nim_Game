@@ -102,10 +102,9 @@ def agente(col1, col2, col3):
                 elif(col3>1):
                     num=col3-1
                     col=3
-                col1h=col1-num
-                col2h=col2-num
-                col3h=col3-num
-                print("test n n 0")
+        #último caso, dado n, 1, 0 en cualquier columna
+        #el agente tiene que retirar n fichas de la columna n
+        
                 
         #if (col1h+col2h+col3h == 2): 
          #   num += 1
