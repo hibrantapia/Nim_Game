@@ -74,17 +74,17 @@ def agente(col1, col2, col3):
         # tiene que retirar mínimo 1 ficha
 
         sum=nimSum()
-        if (col1!=0 and (col1^sum)<col1):
+        if (col1!=0 and (col1^sum)<col1 and col==0 and num==0):
             col=1
             num=col1-col1^sum
             print(str(col1^sum) + " " + str(sum))
             col1h=col1h-num
-        elif (col2!=0 and (col2^sum<col2)):
+        elif (col2!=0 and (col2^sum<col2) and col==0 and num==0):
             col=2
             num=col2-col2^sum
             print(str(col2^sum)+ " " + str(sum))
             col2h=col2h-num
-        elif (col3!=0 and (col3^sum<col3)):
+        elif (col3!=0 and (col3^sum<col3) and col==0 and num==0):
             col=3
             num=col3-col3^sum
             print(str(col3^sum)+ " " + str(sum))
