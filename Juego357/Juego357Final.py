@@ -1,6 +1,9 @@
 # juego 3 5 7
-# TODO
-# Añadir condición para cuando el agente pierde, aka el jugador juega perfecto - DONE
+#Elías Rodríguez Hernández A01654900
+#Tec de Monterrey
+# Implementación NIM 3 5 7 ineficiente
+# Jugador vs agente, empiezan aleatoriamente
+#ver final. 25/04/23
 
 import random as r
 col1 = 3
@@ -135,8 +138,8 @@ def control():
     global col3
     done = False
     start()
-    # turn= r.randint(0,1) #1 es agente, 0 es jugador
-    turn = 0  # , para debugging donde el jugador empieza
+    turn= r.randint(0,1) #1 es agente, 0 es jugador
+    #turn = 0  # , para debugging donde el jugador empieza
     while (not done):
         if (bool(turn)):
             if ((col1 == 0 and col2 == 0 and col3 == 1)):
