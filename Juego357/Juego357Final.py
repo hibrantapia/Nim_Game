@@ -1,21 +1,21 @@
 # juego 3 5 7
-#Elías Rodríguez Hernández A01654900
-#Tec de Monterrey
+# Elías Rodríguez Hernández A01654900
+# Tec de Monterrey
 # Implementación NIM 3 5 7 ineficiente
 # Jugador vs agente, empiezan aleatoriamente
-#ver final. 25/04/23
+# ver final. 25/04/23
 
 import random as r
 col1 = 3
 col2 = 5
 col3 = 7
 
-
 def printBoard():
     # imprimir el tablero
     print("1: " + " * "*col1)
     print("2: " + " * "*col2)
     print("3: " + " * "*col3)
+
 
 def modifyBoard(col, num):
     # modificar el tablero
@@ -43,7 +43,7 @@ def nimSum():
 
 
 def agente(col1, col2, col3):
-    print("El nim es  " + str(nimSum()))
+    # print("El nim es  " + str(nimSum()))
     print("Es el turno del agente")
     # las combinaciones ganadoras son 2 2 0, 3 3 0, 4 4 0, 5 5 0, 1 1 1, 1 2 3, 1 4 5, 2 2 4, 2 4 6, 2 5 7, 3 4 7, 3 5 6
     # ya que su nimSum es distinto de 0 y se puede forzar la victoria
@@ -87,37 +87,36 @@ def agente(col1, col2, col3):
             num = col3-(col3 ^ nimSum())
             col3h = col3h-num
 
-
         if (col1h == 0 and col2h == 0 and col3h == 0):
             print("Bot: Final del juego, bien jugado :)")
             num = num-1
 
-        #estoy bastante seguro que hay una mejor forma de hacer esto
-        #el chiste es que no se ponga en una situación comprometedora tratando de terminar en una configuración 1 1 0 
-        if ((col1h==1 and col2h==1) or (col1h==1 and col3h==1) or (col2h==1 and col3h==1)):
-                if(col1>1):
-                    num=col1-1
-                    col=1
-                elif(col2>1):
-                    num=col2-1
-                    col=2
-                elif(col3>1):
-                    num=col3-1
-                    col=3
-        if(col1==0 or col2==0 or col3==0):
-            if(col1==1 or col2==1 or col3==1):
-            #este caso cubre el caso n, 1, 0
-            #el agente debe comer la fila n completa para forzar la victoria
-                if(col1>1):
-                    col=1
-                    num=col1
-                elif(col2>1):
-                    col=2
-                    num=col2
-                elif(col3>1):
-                    col=3
-                    num=col3
-        #if (col1h+col2h+col3h == 2): 
+        # estoy bastante seguro que hay una mejor forma de hacer esto
+        # el chiste es que no se ponga en una situación comprometedora tratando de terminar en una configuración 1 1 0
+        if ((col1h == 1 and col2h == 1) or (col1h == 1 and col3h == 1) or (col2h == 1 and col3h == 1)):
+            if (col1 > 1):
+                num = col1-1
+                col = 1
+            elif (col2 > 1):
+                num = col2-1
+                col = 2
+            elif (col3 > 1):
+                num = col3-1
+                col = 3
+        if (col1 == 0 or col2 == 0 or col3 == 0):
+            if (col1 == 1 or col2 == 1 or col3 == 1):
+                # este caso cubre el caso n, 1, 0
+                # el agente debe comer la fila n completa para forzar la victoria
+                if (col1 > 1):
+                    col = 1
+                    num = col1
+                elif (col2 > 1):
+                    col = 2
+                    num = col2
+                elif (col3 > 1):
+                    col = 3
+                    num = col3
+        # if (col1h+col2h+col3h == 2):
          #   num += 1
     return col, num
 
@@ -126,11 +125,37 @@ def start():
     print("En este juego se deben retirar cualquier cantidad de fichas de una columna, pero solo una columna por turno. El jugador que retira la última ficha pierde.")
     printBoard()
 
+def turnoJugador():
+    col_limits = {1: col1, 2: col2, 3: col3}
+    col, num = 0, 0
+    print("Es tu turno")
+    #verify col and num are integers, col is between 1 and 3, num is between 1 and col{1,2,3}
+    col,num= verify(col,num)
+
+    return col, num
+
+def verify(col, num):
+    col_limits = {1: col1, 2: col2, 3: col3}
+    while True:
+        try:
+            col = int(input("Ingresa una columna no vacía (1-3): "))
+            num = int(input(f"Ingresa una cantidad de fichas válida (1-{col_limits[col]}): "))
+        except ValueError:
+            print("Por favor ingresa un número entero.")
+            continue
+        if col < 1 or col > 3 or num < 1 or num > col_limits[col]:
+            print("Por favor ingresa valores válidos.")
+        else:
+            return int(col), int(num)
+
+
+
 def endgame(turn):
     if (turn):
         print("Ganó el jugador")
     else:
         print("Ganó el agente")
+
 
 def control():
     global col1
@@ -138,8 +163,8 @@ def control():
     global col3
     done = False
     start()
-    turn= r.randint(0,1) #1 es agente, 0 es jugador
-    #turn = 0  # , para debugging donde el jugador empieza
+    turn = r.randint(0, 1)  # 1 es agente, 0 es jugador
+    # turn = 0  # , para debugging donde el jugador empieza
     while (not done):
         if (bool(turn)):
             if ((col1 == 0 and col2 == 0 and col3 == 1)):
@@ -167,7 +192,7 @@ def control():
                       " fichas de la columna " + str(col))
                 print("Bot: Bien jugado! :)")
                 modifyBoard(col, num)
-                endgame(1)              
+                endgame(1)
                 break
             else:
                 col, num = agente(col1, col2, col3)
@@ -175,15 +200,12 @@ def control():
                       " fichas de la columna " + str(col))
                 modifyBoard(col, num)
                 turn = not turn
-                
+
         else:
-            print("Es tu turno")
-            print("Ingresa la columna")
-            col = int(input())
-            print("Ingresa la cantidad de fichas a retirar")
-            num = int(input())
-            modifyBoard(col, num)
-            turn = not turn
+            col,num= turnoJugador()
+            #print(f"col: {col}, num: {num}")
+            modifyBoard(int(col),int(num))
+            turn=not turn
         printBoard()
         if (col1 == 0 and col2 == 0 and col3 == 0):
             done = True
@@ -195,6 +217,7 @@ def control():
         col2 = 5
         col3 = 7
         control()
-        
+
+
 if __name__ == '__main__':
     control()
