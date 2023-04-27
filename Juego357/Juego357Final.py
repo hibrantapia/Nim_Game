@@ -139,14 +139,19 @@ def verify(col, num):
     while True:
         try:
             col = int(input("Ingresa una columna no vacía (1-3): "))
-            num = int(input(f"Ingresa una cantidad de fichas válida (1-{col_limits[col]}): "))
+            try:
+                num = int(input(f"Ingresa una cantidad de fichas válida (1-{col_limits[col]}): "))
+            except KeyError:
+                print("Por favor ingresa una columna válida.")
+                continue
         except ValueError:
-            print("Por favor ingresa un número entero.")
+            print("Por favor ingresa un número entero de una columna no vacía.")
             continue
-        if col < 1 or col > 3 or num < 1 or num > col_limits[col]:
-            print("Por favor ingresa valores válidos.")
         else:
-            return int(col), int(num)
+            if col < 1 or col > 3 or num < 1 or num > col_limits[col]:
+                print("Por favor ingresa valores válidos.")
+            else:
+                return int(col), int(num)
 
 
 
