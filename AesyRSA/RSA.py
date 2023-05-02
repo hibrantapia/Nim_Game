@@ -83,9 +83,9 @@ m=[(c**d)%n for c in c]
 
 #convierte a ascii
 m=ascii_to_string(m)
-
-print(f"El mensaje desencriptado en ascii es {m}")
 tiempoProcesamiento=time.perf_counter()-tiempoProcesamiento
+print(f"El mensaje desencriptado en ascii es {m}")
+
 
 print(f"El tiempo de procesamiento fue de {tiempoProcesamiento} segundos")
 print(f"El tiempo de búsqueda de coprimos fue de {tiempoCoprimos} segundos")
