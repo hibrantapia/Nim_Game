@@ -5,13 +5,7 @@
 
 <p align="center"> <img src = "/Nim_Game_UI.png" width = 500> </p>
 
-This is a chatbot designed to respond to user input by searching for specific keywords and phrases and providing pre-determined responses.
-
-This code defines a function called responderPregunta that takes an input text as an argument. It then processes the input text by searching for specific keywords and phrases within it, using a set of dictionaries (dictFirstLayer, dictSecondLayerCarreras, dictThirdLayerCarreras, dictFourthLayerMaterias, dictFifthLayerProfesores, dictSecondLayerBecas, dictSecondLayerCampus, dictSecondLayerInscripciones, dictSecondLayerColegiaturas, and dictSecondLayerServicios) that contain possible responses to those keywords and phrases.
-
-If a match is found, the corresponding response is printed to the console and the function returns. If no match is found, a default message is printed indicating that the information was not found and the function returns.
-
-The global context variable is used to store information from previous interactions, which is appended to the input text to provide additional context for the keyword search.
+In this game, any number of asterisks must be removed from a row, but only one row per turn. The player removes the last asterisk loses. \n You will play against an intelligent agent.
 
 <h2 align="left">Recipe</h2>
 
