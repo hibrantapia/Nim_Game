@@ -1,9 +1,9 @@
 ## Nim Game
 
-#### College Project - Make sure to read the PDF article in "Extra_Stuff".
+#### Colaborative College Project - Make sure to check out the authors.
 
 <h3 align="center">TECbot</h3>
-<p align="center"> <img src = "/Nim_Game_UI.png" width = 1000> </p>
+<p align="center"> <img src = "/Nim_Game_UI.png" width = 100> </p>
 
 This is a chatbot designed to respond to user input by searching for specific keywords and phrases and providing pre-determined responses.
 
