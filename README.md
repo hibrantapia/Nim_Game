@@ -9,7 +9,7 @@ In this game, any number of asterisks must be removed from a row, but only one r
 
 <h2 align="left">Recipe</h2>
 
-1. In this simple GitHub Repository, I uploaded 1 file "Nim_Game.py", containing the resource code of our game.
+1. In this simple GitHub Repository, I uploaded 1 file "Nim_Game.py", containing the source code of our game.
 2. You don't need anything special to run the program.
 
 <h2 align="left">Extra Stuff</h3>
