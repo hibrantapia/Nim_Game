@@ -5,16 +5,16 @@
 
 <p align="center"> <img src = "/Nim_Game_UI.png" width = 400> </p>
 
-In this game, any number of asterisks must be removed from a row, but only one row per turn. The player removes the last asterisk loses. \n You will play against an intelligent agent.
+In this game, any number of asterisks must be removed from a row, but only one row per turn. The player removes the last asterisk loses. You will play against an intelligent agent.
 
 <h2 align="left">Recipe</h2>
 
-1. In this simple GitHub Repository, I uploaded 1 file, containing the resource code of our chatbot.
+1. In this simple GitHub Repository, I uploaded 1 file "Nim_Game.py", containing the resource code of our game.
 2. You don't need anything special to run the program.
 
 <h2 align="left">Extra Stuff</h3>
 
-- This is a College Project, make sure to check out the PDF file and check out the autors..
+- This is a College Project, make sure to check out the autors.
 
 
 #### Check out my social stuff for more:
