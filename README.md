@@ -2,7 +2,7 @@
 
 #### Colaborative College Project - Make sure to check out the authors.
 
-<h3 align="center">TECbot</h3>
+
 <p align="center"> <img src = "/Nim_Game_UI.png" width = 500> </p>
 
 This is a chatbot designed to respond to user input by searching for specific keywords and phrases and providing pre-determined responses.
