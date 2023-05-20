@@ -3,7 +3,7 @@
 #### Colaborative College Project - Make sure to check out the authors.
 
 
-<p align="center"> <img src = "/Nim_Game_UI.png" width = 500> </p>
+<p align="center"> <img src = "/Nim_Game_UI.png" width = 400> </p>
 
 In this game, any number of asterisks must be removed from a row, but only one row per turn. The player removes the last asterisk loses. \n You will play against an intelligent agent.
 
